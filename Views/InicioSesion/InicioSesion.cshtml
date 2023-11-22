@@ -1,0 +1,76 @@
+@model Front.Models.Usuario
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #343a40;
+            color: #ffffff;
+        }
+
+        .container {
+            max-width: 600px;
+            margin-top: 50px;
+        }
+
+        h2 {
+            color: #17a2b8;
+        }
+
+        label {
+            color: #ffffff;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            border-color: #007bff;
+            padding: 15px 30px;
+            font-size: 1.5rem;
+            color: #ffffff;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2 class="text-center">Iniciar Sesión</h2>
+
+    @using (Html.BeginForm("InicioSesion", "InicioSesion", FormMethod.Post))
+    {
+        <div>
+            <label for="nombreUsuario">Nombre de Usuario:</label>
+            <input type="text" id="nombreUsuario" name="NombreUsuario" required />
+        </div>
+
+        <div>
+            <label for="contraseña">Contraseña:</label>
+            <input type="password" id="contraseña" name="Contraseña" required />
+        </div>
+
+        <div class="text-center mt-3">
+            <input type="submit" value="Iniciar Sesión" onclick="verificarSesion(); return false;" />
+        </div>
+    }
+
+</div>
+
+</body>
+</html>
